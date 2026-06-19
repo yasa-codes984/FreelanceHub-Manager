@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FreelanceHub</title>
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="authSection">
+
+    <div class="auth-box">
+
+        <h2>FreelanceHub</h2>
+
+        <input type="email"
+        id="authEmail"
+        placeholder="Email">
+
+        <input type="password"
+        id="authPassword"
+        placeholder="Password">
+
+        <button id="registerBtn">
+            Register
+        </button>
+
+        <button id="loginBtn">
+            Login
+        </button>
+
+    </div>
+
+</div>
+
+<div class="container" style="display:none;">
+
+   <aside class="sidebar">
+
+    <h2>FreelanceHub</h2>
+
+    <ul>
+<li id="dashboardBtn">🏠 Dashboard</li>
+<li id="clientsBtn">👥 Clients</li>
+<li id="projectsBtn">📁 Projects</li>
+<li id="tasksBtn">✅ Tasks</li>
+<li id="financeBtn">💰 Finance</li>
+<li id="analyticsBtn">📊 Analytics</li>
+<li id="settingsBtn">⚙️ Settings</li>
+<li id="darkModeBtn">🌙 Dark Mode</li>
+<li id="logoutBtn">🚪 Logout</li>
+    </ul>
+<div class="version">
+FreelanceHub v1.0
+</div>
+</aside>
+
+    <main class="main">
+
+        <header class="topbar">
+<input
+type="text"
+id="searchInput"
+placeholder="Search clients..."
+>
+            <div class="profile">
+
+                🔔
+
+                👤
+
+            </div>
+
+        </header>
+
+        
+<div id="dashboardSection">
+
+<section class="welcome">
+
+    <h1>
+        Welcome Back 👋
+    </h1>
+
+    <p>
+        Manage your clients and projects in one place.
+    </p>
+
+</section>
+
+<section class="dashboard-grid">
+
+    <div class="card">
+        <h3>Total Clients</h3>
+        <p id="clientsCount">0</p>
+    </div>
+
+    <div class="card">
+        <h3>Active Projects</h3>
+        <p id="projectsCount">0</p>
+    </div>
+
+    <div class="card">
+        <h3>Revenue</h3>
+        <p id="revenueCount">$0</p>
+    </div>
+
+    <div class="card">
+        <h3>Completed</h3>
+        <p id="completedCount">0</p>
+        
+    </div>
+<div class="card">
+    <h3>Pending Projects</h3>
+    <p id="pendingDashboard">0</p>
+</div>
+
+<div class="card">
+    <h3>In Progress</h3>
+    <p id="progressDashboard">0</p>
+</div>
+<div class="card">
+    <h3>Completed Projects</h3>
+    <p id="completedDashboard">0</p>
+</div>
+
+<div class="card overdue-card">
+    <h3>Overdue Projects</h3>
+    <p id="overdueDashboard">0</p>
+</div>
+
+<div class="card">
+    <h3>Due Soon</h3>
+    <p id="dueSoonDashboard">0</p>
+</div>
+</section>
+
+</div>
+        <section class="bottom-grid">
+
+    <div id="clientsSection">
+
+        <div class="panel">
+
+            <div class="section-header">
+
+                <h2>Recent Clients</h2>
+
+                <button id="openModalBtn">
+                    + Add Client
+                </button>
+
+            </div>
+
+            <div id="clientsList"></div>
+
+        </div>
+
+    </div>
+
+    <div id="projectsSection">
+
+        <div class="panel">
+
+            <div class="section-header">
+
+                <h2>Projects</h2>
+
+                <select id="statusFilter">
+
+                    <option value="All">All</option>
+                    <option value="Pending">Pending</option>
+                    <option value="In Progress">In Progress</option>
+                    <option value="Completed">Completed</option>
+
+                </select>
+
+                <button id="openProjectModalBtn">
+                    + Add Project
+                </button>
+
+            </div>
+
+            <div id="projectsList"></div>
+
+        </div>
+
+    </div>
+
+    <div id="tasksSection">
+
+        <div class="panel">
+
+            <div class="section-header">
+
+                <h2>Tasks</h2>
+
+                <button id="addTaskBtn">
+                    + Add Task
+                </button>
+
+            </div>
+<div id="tasksList"></div>
+
+        </div>
+
+    </div>
+
+</section>
+<div id="financeSection" style="display:none;">
+
+    <div class="panel">
+
+        <h2>Finance Overview</h2>
+<button id="exportBtn" class="export-btn">
+Export Projects CSV
+</button>
+
+<button id="pdfBtn" class="pdf-btn">
+📄 Export PDF Report
+</button>
+<div class="finance-grid">
+    
+            <div class="card">
+                <h3>Total Budget</h3>
+                <p id="totalBudget">$0</p>
+            </div>
+
+            <div class="card">
+                <h3>Total Paid</h3>
+                <p id="totalPaid">$0</p>
+            </div>
+
+            <div class="card">
+                <h3>Total Remaining</h3>
+                <p id="totalRemaining">$0</p>
+            </div>
+
+        </div>
+<h3 style="margin-top:30px;">
+Project Finance Details
+</h3>
+
+<div id="financeProjects"></div>
+    </div>
+
+</div>
+
+<div id="analyticsSection" style="display:none;">
+
+    <div class="panel">
+
+        <h2>Analytics Overview</h2>
+
+        <div class="finance-grid">
+
+            <div class="card">
+                <h3>Pending Projects</h3>
+                <p id="pendingProjects">0</p>
+            </div>
+
+            <div class="card">
+                <h3>In Progress</h3>
+                <p id="progressProjects">0</p>
+            </div>
+
+            <div class="card">
+                <h3>Completed Projects</h3>
+                <p id="completedProjectsAnalytics">0</p>
+            </div>
+
+        </div>
+
+       <h3 style="text-align:center; margin-top:20px;">
+Projects Status Chart
+</h3>
+
+<canvas id="projectsChart"></canvas>
+
+<h3 style="text-align:center; margin-top:30px;">
+Revenue Overview
+</h3>
+<canvas id="revenueChart"></canvas>
+<div class="finance-grid" style="margin-top:20px;">
+
+    <div class="card">
+        <h3>Total Budget</h3>
+        <p id="totalBudgetAnalytics">$0</p>
+    </div>
+
+    <div class="card">
+        <h3>Total Paid</h3>
+        <p id="totalPaidAnalytics">$0</p>
+    </div>
+
+    <div class="card">
+        <h3>Collection Rate</h3>
+        <p id="collectionRateAnalytics">0%</p>
+    </div>
+
+</div>
+
+    </div>
+
+</div>
+
+</main>
+<div id="settingsSection" style="display:none;">
+
+    <div class="panel">
+
+        <h2>Settings</h2>
+
+        <div class="card">
+            <button id="exportBackupBtn">
+📤 Export Backup
+</button>
+
+<button id="importBackupBtn">
+📥 Import Backup
+</button>
+
+<input
+type="file"
+id="importBackupFile"
+accept=".json"
+style="display:none;"
+>
+    <h3>System Information</h3>
+
+    <p>Version: FreelanceHub v1.0</p>
+
+    <p>
+        Clients Saved:
+        <span id="savedClients">0</span>
+    </p>
+
+    <p>
+        Projects Saved:
+        <span id="savedProjects">0</span>
+    </p>
+
+    <p>
+        Developed By:
+        Yasa
+    </p>
+</div>
+    </div>
+
+</div>
+<div class="modal" id="clientModal">
+
+    <div class="modal-content">
+
+        <h2>Add New Client</h2>
+
+        <input
+        type="text"
+        id="clientName"
+        placeholder="Client Name">
+
+
+        <input
+        type="email"
+        id="clientEmail"
+        placeholder="Email">
+
+        <input
+        type="text"
+        id="clientPhone"
+        placeholder="Phone">
+
+        <button id="addClientBtn">
+            Add Client
+        </button>
+
+        <button id="closeModalBtn">
+            Close
+        </button>
+
+    </div>
+
+</div>
+<div class="modal" id="projectModal">
+
+<div class="modal-content">
+
+<h2 id="projectModalTitle">Add Project</h2>
+
+<input
+type="text"
+id="projectName"
+placeholder="Project Name">
+
+<input
+type="number"
+id="projectBudget"
+placeholder="Budget">
+<input
+type="number"
+id="projectPaid"
+placeholder="Paid Amount">
+<input
+type="date"
+id="projectDeadline">
+<select id="projectClient">
+
+</select>
+
+<select id="projectStatus">
+
+<option value="Pending">
+Pending
+</option>
+
+<option value="In Progress">
+In Progress
+</option>
+
+<option value="Completed">
+Completed
+</option>
+
+</select>
+
+<button id="addProjectBtn">
+Add Project
+</button>
+
+<button id="closeProjectModalBtn">
+Close
+</button>
+
+</div>
+
+</div>
+
+</div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script type="module" src="script.js"></script>
+<div id="toast" class="toast">
+✅ Success
+</div>
+</body>
+</html>
